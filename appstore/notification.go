@@ -92,9 +92,12 @@ type SubscriptionNotification struct {
 	// Posted only if the notification_type is CANCEL.
 	WebOrderLineItemID string `json:"web_order_line_item_id"`
 
+	//XXX: apple changed the type of this field from string to int, there maybe unmarshal error if replay some historical notification data.
+	// comment out it because we did't use it, we use UnifiedReceipt.
+	//
 	// This is the same as the Subscription Expiration Intent in the receipt.
 	// Posted only if notification_type is RENEWAL or INTERACTIVE_RENEWAL.
-	ExpirationIntent int `json:"expiration_intent"`
+	//ExpirationIntent int `json:"expiration_intent"`
 
 	// Auto renew info
 	AutoRenewStatus    string `json:"auto_renew_status"` // false or true
